@@ -6,6 +6,7 @@ row = ARGV[0].to_i
 col = ARGV[1].to_i
 if row.zero? || col.zero?
   puts "Usage: #{$PROGRAM_NAME} $row $col"
+  puts "  e.g: #{$PROGRAM_NAME} 2947 3029"
   exit
 end
 
