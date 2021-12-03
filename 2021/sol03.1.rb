@@ -1,8 +1,10 @@
 # frozen_string_literal: true
 
-# require 'byebug'
-
-#  ruby $0 <input-file>
+# Given a list of binary numbers count the number of 1's in each character position
+# Generate a gamma_rate binary value which comprises of the most common character
+# found in each position
+# Generate a epsilon_rate which is the opposite.
+# The answer is the two values multiplied together in decimal
 class Solve
   def solve_it(filename)
     lines = File.readlines(filename, chomp: true) # => ["00100", "11110", "10110", ...]

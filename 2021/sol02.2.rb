@@ -11,8 +11,6 @@
 #        It increases your depth by your aim multiplied by X.
 #
 # The answer is the horizontal position multiplied by the depth
-
-#  ruby $0 <input-file>
 class Solve
   def initialize
     @horizontal = 0
@@ -22,7 +20,7 @@ class Solve
 
   def solve_it(filename)
     File.readlines(filename, chomp: true).each do |line|
-      command, value = line.split(' ')
+      command, value = line.split
       if command == 'forward'
         @horizontal += value.to_i
         @depth += @aim * value.to_i

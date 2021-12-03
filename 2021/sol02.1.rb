@@ -10,15 +10,13 @@
 # Calculate the horizontal position and depth you would have after following the
 # planned course.
 # What do you get if you multiply your final horizontal position by your final depth?
-
-#  ruby $0 <input-file>
 class Solve
   def solve_it(filename)
     horizontal = 0
     depth = 0
     input = File.readlines(filename, chomp: true)
     input.each do |line|
-      command, value = line.split(' ')
+      command, value = line.split
       horizontal += value.to_i if command == 'forward'
       depth += value.to_i if command == 'down'
       depth -= value.to_i if command == 'up'

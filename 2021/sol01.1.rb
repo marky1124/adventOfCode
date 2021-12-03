@@ -1,8 +1,6 @@
 # frozen_string_literal: true
 
-# Given a list of numbers count the number the next one is bigger
-
-#  ruby $0 <input-file>
+# Given a list of numbers count the number of times the next one is bigger
 class Solve
   def solve_it(filename)
     previous = nil

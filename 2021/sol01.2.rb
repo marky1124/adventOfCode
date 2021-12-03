@@ -3,8 +3,6 @@
 # Given a list of numbers take each consecutive overlapping group
 # of three numbers and sum them, and then count the number of times
 # that sum'd number is larger than the previous one.
-
-#  ruby $0 <input-file>
 class Solve
   def solve_it(filename)
     previous = nil
