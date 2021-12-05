@@ -14,31 +14,23 @@ class Line
 
   def calculate_points
     points = []
-    if @x1 == @x2
-      if @y1 <= @y2
-        (@y1..@y2).each { |y| points.append([@x1, y]) }
-      else
-        (@y2..@y1).reverse_each { |y| points.append([@x1, y]) }
-      end
-    elsif @y1 == @y2
-      if @x1 <= @x2
-        (@x1..@x2).each { |x| points.append([x, @y1]) }
-      else
-        (@x2..@x1).reverse_each { |x| points.append([x, @y1]) }
-      end
-    else
-      x_delta = @x1 <= @x2 ? 1 : -1
-      y_delta = @y1 <= @y2 ? 1 : -1
-      x_offset = 0
-      y_offset = 0
-      while @x1 + x_offset != @x2
-        points.append([@x1 + x_offset, @y1 + y_offset])
-        x_offset += x_delta
-        y_offset += y_delta
-      end
+    x_delta = calculate_delta_value(@x1, @x2)
+    y_delta = calculate_delta_value(@y1, @y2)
+    x_offset = 0
+    y_offset = 0
+    until (@x1 + x_offset == @x2) && (@y1 + y_offset == @y2)
       points.append([@x1 + x_offset, @y1 + y_offset])
+      x_offset += x_delta
+      y_offset += y_delta
     end
-    points
+    points.append([@x1 + x_offset, @y1 + y_offset])
+  end
+
+  def calculate_delta_value(pos1, pos2)
+    return 0 if pos1 == pos2
+    return 1 if pos1 < pos2
+
+    -1
   end
 end
 
