@@ -21,7 +21,7 @@ class Solve
   end
 end
 
-filename = ARGV[0]
+filename = ARGV[0] || 'in03'
 if filename.nil? || filename.length.zero?
   puts "Usage: #{$PROGRAM_NAME} <file>"
   puts "  e.g: #{$PROGRAM_NAME} in03"

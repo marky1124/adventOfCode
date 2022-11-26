@@ -16,11 +16,11 @@ class Solve
   end
 end
 
-file = ARGV[0]
-if file.nil? || file.length.zero?
+filename = ARGV[0] || 'in13'
+if filename.nil? || filename.length.zero?
   puts "Usage: #{$PROGRAM_NAME} <file>"
   puts "  e.g: #{$PROGRAM_NAME} in13"
   exit
 end
 
-Solve.new(file)
+Solve.new(filename)

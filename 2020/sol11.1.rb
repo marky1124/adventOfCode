@@ -5,7 +5,7 @@ class Solve
   def initialize
     if ARGV[0].nil?
       puts "Usage: #{$PROGRAM_NAME} <file>"
-      puts "  e.g: #{$PROGRAM_NAME} in10"
+      puts "  e.g: #{$PROGRAM_NAME} in11"
       exit
     end
 

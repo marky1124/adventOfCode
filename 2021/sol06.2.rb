@@ -31,11 +31,11 @@ class Solve
   end
 end
 
-filename = ARGV[0]
-days = ARGV[1].to_i
+filename = ARGV[0] || 'in06'
+days = (ARGV[1] || 256).to_i
 if filename.nil? || filename.length.zero?
   puts "Usage: #{$PROGRAM_NAME} <file> <number_of_days>"
-  puts "  e.g: #{$PROGRAM_NAME} in01 80"
+  puts "  e.g: #{$PROGRAM_NAME} in06 256"
   exit
 end
 

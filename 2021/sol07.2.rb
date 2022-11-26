@@ -35,14 +35,14 @@ class Solve
   end
 end
 
-filename = ARGV[0]
+filename = ARGV[0] || 'in07'
 if filename.nil? || filename.length.zero?
   puts "Usage: #{$PROGRAM_NAME} <file>"
-  puts "  e.g: #{$PROGRAM_NAME} in24"
+  puts "  e.g: #{$PROGRAM_NAME} in07"
   exit
 end
 
 s = Solve.new
-Signal.trap('USR1') { puts s.display_progress }  # Reacts to kill -USR1 <PID>
-Signal.trap('INFO') { puts s.display_progress }  # Reacts to CTRL-T
+Signal.trap('USR1') { puts s.display_progress } # Reacts to kill -USR1 <PID>
+Signal.trap('INFO') { puts s.display_progress } if RUBY_PLATFORM =~ /darwin/ # Reacts to CTRL-T on OS X (ArgumentError in Debian)
 s.solve_it(filename)
