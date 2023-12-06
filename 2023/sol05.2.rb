@@ -3,12 +3,13 @@
 # One of many number mappings, e.g. 98..99 maps to 50..51
 class Mapping
   def initialize(dest, source, count)
-    @source_range = (source..source + count - 1)
+    @min = source
+    @max = source + count - 1
     @offset = dest - source
   end
 
   def include?(number)
-    @source_range.include?(number)
+    number >= @min && number <= @max
   end
 
   def maps_to(number)
