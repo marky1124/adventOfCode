@@ -24,6 +24,12 @@ class Solve
           asterisks += adjacent_asterisks(row_idx, col_idx)
         end
       end
+      next if number.zero?
+
+      asterisks.uniq!
+      asterisks.each do |asterisk|
+        @gears[asterisk] << number
+      end
     end
 
     answer1 = 0

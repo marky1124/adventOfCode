@@ -21,6 +21,7 @@ class Solve
           adjacent_symbol_seen = true if adjacent_symbol(row_idx, col_idx)
         end
       end
+      answer1 += number if adjacent_symbol_seen
     end
     puts "Answer to part 1 = #{answer1}"
   end
