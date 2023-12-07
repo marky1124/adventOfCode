@@ -1,22 +1,5 @@
 # frozen_string_literal: true
 
-# One of many number mappings, e.g. 98..99 maps to 50..51
-class Mapping
-  def initialize(dest, source, count)
-    @min = source
-    @max = source + count - 1
-    @offset = dest - source
-  end
-
-  def include?(number)
-    number >= @min && number <= @max
-  end
-
-  def maps_to(number)
-    number + @offset
-  end
-end
-
 # Represents a whole almanac mapping, e.g. 'seed-to-soil'
 class Map
   def initialize(name)
@@ -25,12 +8,15 @@ class Map
   end
 
   def add_range(line)
-    @mappings << Mapping.new(*line.split.map(&:to_i))
+    (dest, min, count) = line.split.map(&:to_i)
+    max = min + count - 1
+    offset = dest - min
+    @mappings << [min, max, offset]
   end
 
   def map(number)
-    @mappings.each do |map|
-      return map.maps_to(number) if map.include?(number)
+    @mappings.each do |min, max, offset|
+      return number + offset if number >= min && number <= max
     end
     number
   end
