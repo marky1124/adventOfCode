@@ -60,7 +60,7 @@ class Solve
     @maps = Hash.new { |hash, key| hash[key] = [] }
     @map_names = []
 
-    process_file(ARGV[0] || 'tin05')
+    process_file(ARGV[0] || 'in05')
     puts "Answer to part 1 = #{nearest_location}"
   end
 
